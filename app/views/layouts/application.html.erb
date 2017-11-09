@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blocitoff</title>
+    <title>Honeydew</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li><%= link_to "Honeydew", root_path %></li>
+        <li><%= link_to "About", about_path %></li>
+
+        <div class="pull-right user-info nav">
+          <% if user_signed_in? %>
+            <li class="pull-right"><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+            <li class="pull-right"><%= image_tag current_user.avatar_url(48)%></li>
+          <% else %>
+            <li class="pull-right"><%= link_to "Sign In", new_user_session_path, class:'nav-tabs' %></li>
+            <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path, class:'nav-tabs' %></li>
+          <% end %>
+
+        </div>
+
+      </ul>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      
+      <%= yield %>
+    </div>
   </body>
 </html>

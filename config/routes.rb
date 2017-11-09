@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
-  resources :wikis do
-    resources :collaborators, only: [:index, :create, :destroy]
+  resources :lists do
+    resources :tasks
   end
 
   get 'about' => 'welcome#about'

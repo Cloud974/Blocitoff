@@ -6,41 +6,44 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'rails', '~> 5.1.2'
 
-gem 'rails', '~> 5.1.4'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
-gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
+end
 
-gem 'puma', '~> 3.7'
-
+gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-
 gem 'uglifier', '>= 1.3.0'
-
-gem 'coffee-rails', '~> 4.2'
-
+gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
-
 gem 'jbuilder', '~> 2.5'
-
+gem 'thor', '~> 0.20'
+gem 'better_errors', '2.3.0'
 gem 'devise'
 
-gem 'pundit'
+group :development do
+  gem 'listen', '~> 3.0.5'
+end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-controller-testing'
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'shoulda'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
-group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
+gem 'bootstrap-sass'
+
+# Password encryption
+gem 'bcrypt'
+
+# Environment Variables
 
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'figaro', '1.0'

@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106211621) do
-
-  create_table "collaborators", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "list_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["list_id"], name: "index_collaborators_on_list_id"
-    t.index ["user_id"], name: "index_collaborators_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 20171107182843) do
 
   create_table "lists", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,9 +21,12 @@ ActiveRecord::Schema.define(version: 20171106211621) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "list_id"
+    t.string "description"
+    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "list_id"
+    t.datetime "duedate"
     t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 
@@ -47,15 +41,14 @@ ActiveRecord::Schema.define(version: 20171106211621) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "welcomes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
