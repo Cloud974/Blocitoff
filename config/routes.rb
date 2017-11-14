@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   end
 
   get 'about' => 'welcome#about'
-  root 'welcome#index'
+  root 'lists#index'
 
 end

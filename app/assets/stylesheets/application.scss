@@ -17,3 +17,35 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+
+.jumbotron-fluid{
+  background-image: url(scott-webb-249013.jpg);
+}
+
+.title{
+  min-height: 150px;
+  text-align: right;
+}
+
+.log-in{
+  display: inline;
+}
+
+.btn-secondary{
+  margin-top: 5px;
+}
+
+.btn-log-in{
+  background-color: rgba(220, 220, 220, .5);
+  padding: .05rem 1rem;
+}
+
+.dropdown-menu{
+  background-color: rgba(107, 114, 106, .6);
+}
+
+.dropdown-menu .field{
+  margin-left: 3px;
+}
