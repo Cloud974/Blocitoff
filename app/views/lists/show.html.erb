@@ -1,14 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @list.user %>
-</p>
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<% content_for :header do %>
+    <li class="list-header-nav"><%=link_to @list.name %></li>
+<% end %>
+<div class="container add-task">
+  <div class="col-1 icon-column">
+    <%= link_to new_list_task_path(@list) do%>
+      <i class="glyphicon glyphicon-plus"></i>
+    <% end %>
+  </div>
+  <div class="col-8 task-column">
+    <%= link_to 'Add Task', new_list_task_path(@list) %>
+  </div>
+</div>
+<% @list.tasks.each do |task| %>
+  <div class="container task-items">
+    <div class="col-1 icon-column">
+      <%= link_to [@list, task], method: :delete do %>
+        <i class="glyphicon glyphicon-ok-circle"></i>
+      <% end %>
+    </div>
+    <div class="col-8 task-column">
+        <%= "#{task.description}" %>
+    </div>
+  </div>
+<% end %>

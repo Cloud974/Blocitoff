@@ -5,59 +5,67 @@
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <li><%= link_to "About", about_path %></li>
-
-        <div class="pull-right user-info nav">
-          <% if user_signed_in? %>
-            <li class="pull-right"><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
-            <li class="pull-right"><%= image_tag current_user.avatar_url(48)%></li>
-            <li class="pull-right"><%= link_to current_user.email, edit_user_registration_path(current_user) %>
+    <div class="wrapper">
+      <% if current_user %>
+        <%= render partial: "shared/sidebar" %>
+      <% end %>
+      <div class="container">
+        <ul class="nav nav-tabs">
+          <% if current_user %>
+            <%= yield :header %> 
           <% else %>
-            <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path, class:'nav-tabs' %></li>
-            <li class="pull-right">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"> Log in</button>
-                <div class="dropdown-menu">
-                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    <div class="field">
-                      <%= f.email_field :email, autofocus: true, placeholder:"Email" %>
-                    </div>
-
-                    <div class="field">
-                      <%= f.password_field :password, autocomplete: "off", placeholder:"password" %>
-                    </div>
-
-                    <% if devise_mapping.rememberable? -%>
-                      <div class="field">
-                        <%= f.check_box :remember_me %>
-                        <%= f.label :remember_me %>
-                      </div>
-                    <% end -%>
-
-                    <div class="actions">
-                      <button class="btn btn-log-in btn-sm btn-block" name="button"><%= f.submit "Log in" %></button>
-                    </div>
-                  <% end %>
-
-                </div>
-              </div>
-            </li>
+            <li><%= link_to "About", about_path %></li>
           <% end %>
+          <div class="pull-right user-info nav">
+            <% if user_signed_in? %>
+              <li class="pull-right"><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+              <li class="pull-right"><%= image_tag current_user.avatar_url(48)%></li>
+              <li class="pull-right"><%= link_to current_user.email, edit_user_registration_path(current_user) %>
+            <% else %>
+              <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path, class:'nav-tabs' %></li>
+              <li class="pull-right">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"> Log in</button>
+                  <div class="dropdown-menu">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      <div class="field">
+                        <%= f.email_field :email, autofocus: true, placeholder:"Email" %>
+                      </div>
 
-        </div>
+                      <div class="field">
+                        <%= f.password_field :password, autocomplete: "off", placeholder:"password" %>
+                      </div>
 
-      </ul>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+                      <% if devise_mapping.rememberable? -%>
+                        <div class="field">
+                          <%= f.check_box :remember_me %>
+                          <%= f.label :remember_me %>
+                        </div>
+                      <% end -%>
 
-      <%= yield %>
+                      <div class="actions">
+                        <button class="btn btn-log-in btn-sm btn-block" name="button"><%= f.submit "Log in" %></button>
+                      </div>
+                    <% end %>
+
+                  </div>
+                </div>
+              </li>
+            <% end %>
+
+          </div>
+
+        </ul>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
     </div>
+
   </body>
 </html>
