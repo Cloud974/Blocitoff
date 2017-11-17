@@ -24,3 +24,11 @@ $(document).ready(function () {
     });
 
 });
+
+$(document).ready(function () {
+
+  $('#newList').on('click', function () {
+      $('#listNameField').toggleClass('active');
+  });
+
+});

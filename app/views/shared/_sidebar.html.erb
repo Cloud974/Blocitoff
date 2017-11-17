@@ -1,20 +1,33 @@
 <div id="collapseable-menu">
-  <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+  <button type="button" id="sidebarCollapse" class="btn navbar-btn">
       <i class="glyphicon glyphicon-align-left"></i>
   </button>
+  <%= link_to edit_user_registration_path(current_user) do %>
+    <i class="user-icon"><%= image_tag current_user.avatar_url(35)%></i>
+  <% end %>
 </div>
 <nav id="sidebar" class="lists-menu">
   <div class="lists-header">
-    <h2>My Lists</h1>
+    <h2 class="list-label">My Lists</h2>
   </div>
-  <ul>
+  <ul class="list-list">
     <% current_user.lists.each do |list| %>
-      <% class_name = current_page?(list_path(list)) ? "active" : "" %>
-      <li class="<%= class_name %>"><%= link_to list.name, list %></li>
+      <div class="col-8 list-list-div">
+        <% class_name = current_page?(list_path(list)) ? "active" : "" %>
+        <li class="<%= class_name %>">
+          <%= link_to list.name, list, class: "list-name"%>
+        </li>
+      </div>
     <% end %>
   </ul>
-
-  <div class="col-md-4">
-    <%= link_to "New list", new_list_path, class: 'btn btn-success' %>
+  <div class="new-list-div">
+    <button type="submit" class="new-list" id="newList">
+      <i class="glyphicon glyphicon-plus"></i>
+    </button>
+    <div id='listNameField' class="list-name-field">
+      <%= form_with(model: List.new, local: true) do |form| %>
+        <%= form.text_field :name, id: :name, placeholder: "New List", class: "list-name-field"%>
+      <% end %>
+    </div>
   </div>
 </nav>

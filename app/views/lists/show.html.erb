@@ -1,25 +1,70 @@
 <% content_for :header do %>
-    <li class="list-header-nav"><%=link_to @list.name %></li>
-<% end %>
-<div class="container add-task">
-  <div class="col-1 icon-column">
-    <%= link_to new_list_task_path(@list) do%>
-      <i class="glyphicon glyphicon-plus"></i>
-    <% end %>
-  </div>
-  <div class="col-8 task-column">
-    <%= link_to 'Add Task', new_list_task_path(@list) %>
-  </div>
-</div>
-<% @list.tasks.each do |task| %>
-  <div class="container task-items">
-    <div class="col-1 icon-column">
-      <%= link_to [@list, task], method: :delete do %>
-        <i class="glyphicon glyphicon-ok-circle"></i>
+    <li class="list-header-nav">
+      <%= form_with(model: @list, local: true) do |form| %>
+        <%= form.text_field :name, id: :name, placeholder: "#{@list.name}", class: "list-header-name-edit" %>
       <% end %>
-    </div>
-    <div class="col-8 task-column">
-        <%= "#{task.description}" %>
-    </div>
-  </div>
+    </li>
+    <li class="list-delete-button">
+      <%= link_to @list, method: :delete do %>
+        <i class="glyphicon glyphicon-remove-sign"></i>
+      <% end %>
+      </button>
+    </li>
 <% end %>
+
+  <%= form_with(model: [ @list, Task.new], local: true) do |form| %>
+    <div class="container add-task">
+      <div class="col-1 icon-column">
+        <div class="actions">
+          <%= button_tag(type: "submit", class: "task-submit") do%>
+            <i class="glyphicon glyphicon-plus"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-8 task-column field">
+        <%= form.text_field :description, id: :description, placeholder: 'Add Task', class: "task-desc-field" %>
+        <div class="date-btn">
+          <%= link_to do %>
+            <i class="glyphicon glyphicon-calendar"></i>
+          <% end %>
+        </div>
+        <div class="note-btn">
+          <i class="glyphicon glyphicon-book" id="note-toggle"></i>
+        </div>
+      </div>
+    </div>
+    <div class="container note-text-field" id="note-div">
+      <%= form.text_area :notes, class: "task-note-field task-note-field-new", rows: '4', placeholder: "Enter task notes here", id: "task-note" %>
+      <%= link_to "Update", class: "btn btn-success update-note"%>
+    </div>
+  <% end %>
+
+  <div class="task-list-container">
+    <% @list.tasks.each do |task| %>
+      <%= form_with(model: [ @list, task]) do |form| %>
+        <div class="container task-items">
+          <div class="col-1 icon-column">
+            <%= link_to [@list, task], method: :delete do %>
+              <i class="glyphicon glyphicon-ok-circle"></i>
+            <% end %>
+          </div>
+          <div class="col-8 task-column">
+              <%= "#{task.description}" %>
+              <div class="date-btn">
+                <%= link_to do %>
+                  <i class="glyphicon glyphicon-calendar"></i>
+                <% end %>
+              </div>
+              <div class="note-btn">
+                <i class="glyphicon glyphicon-book" id="note-toggle" data-task-id="<%= task.id %>"></i>
+              </div>
+          </div>
+        </div>
+        <div class="container note-text-field" id="note-div-task-<%= task.id %>">
+          <%= form.text_area :notes, class: "task-note-field", rows: '4', placeholder: "Enter task notes here", id: "task-note" %>
+          <%= link_to "Update", class: "btn btn-success update-note"%>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
