@@ -1,24 +1,33 @@
-<%= form_for [list, task] do |f| %>
-  <% if task.errors.any? %>
-    <div id="alert alert-danger">
-      <h4><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h4>
-      <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_with(model: [ @list, Task.new], local: true) do |form| %>
+  <div class="container add-task">
+    <div class="col-1 icon-column">
+      <div class="actions">
+        <%= button_tag(type: "submit", class: "task-submit") do%>
+          <i class="glyphicon glyphicon-plus"></i>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-    <%= form_group_tag(task.errors[:description]) do %>
-      <%= f.label :description %>
-      <%= f.text_field :description, class: 'form-control', placeholder: 'Enter task description' %>
-    <% end %>
-    <%= form_group_tag(task.errors[:notes]) do %>
-      <%= f.label :notes %>
-      <%= f.text_area :notes, class: 'form-control', rows: '8', placeholder: 'Enter task notes' %>
-    <% end %>
-  <div class="form-group">
-    <%= f.submit "Save", class: 'btn btn-success' %>
+    <div class="col-8 task-column field">
+      <%= form.text_field :description, id: :description, placeholder: 'Add Task', class: "task-desc-field" %>
+      <div class="date-btn">
+        <i class="glyphicon glyphicon-calendar" id="calendar-toggle"></i>
+      </div>
+      <div class="note-btn">
+        <i class="glyphicon glyphicon-book" id="note-toggle"></i>
+      </div>
+    </div>
+  </div>
+  <div class="container details-container-new">
+    <div class="note-text-field" id="note-div">
+      <%= form.text_area :notes, class: "task-note-field task-note-field-new", rows: '4', placeholder: "Enter task notes here", id: "task-note" %>
+    </div>
+    <div class="date-text-field" id="calendar-div" style="position: relative">
+      <%= form.date_select :duedate, class: "date-field date-field-new form-control" %>
+      <script type="text/javascript">
+        $(function () {
+          $("#datetimepicker-<%= form.object.id %>").datetimepicker();
+        });
+      </script>
+    </div>
   </div>
 <% end %>

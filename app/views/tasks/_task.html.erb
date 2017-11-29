@@ -1,0 +1,33 @@
+<%= form_with model: [@list, task], local: true do |form| %>
+  <div class="container task-items">
+    <div class="col-1 icon-column">
+      <%= link_to [@list, task], method: :delete do %>
+        <i class="glyphicon glyphicon-ok-circle"></i>
+      <% end %>
+    </div>
+    <div class="col-8 task-column">
+        <%= form.text_field :description, id: :description, placeholder: "#{task.description}", class: "task-desc-field" %>
+        <small><%= task.duedate %></small>
+        <div class="date-btn">
+            <i class="glyphicon glyphicon-calendar" id="calendar-toggle" data-task-id="<%= task.id %>"></i>
+        </div>
+        <div class="note-btn">
+          <i class="glyphicon glyphicon-book" id="note-toggle" data-task-id="<%= task.id %>"></i>
+        </div>
+    </div>
+  </div>
+  <div class="container details-container">
+    <div class="note-text-field" id="note-div-task-<%= task.id %>">
+      <%= form.text_area :notes, class: "task-note-field", rows: '4', placeholder: "Enter task notes here", id: "task-note" %>
+      <%= form.submit "update note", class: "add-note-btn"%>
+    </div>
+    <div class="date-text-field" id="calendar-div-task-<%= task.id %>", style="position: relative">
+      <%= form.date_select :duedate, class: "date-field date-field-new" %>
+      <script type="text/javascript">
+        $(function () {
+          $("#datetimepicker-<%= form.object.id %>").datetimepicker();
+        });
+      </script>
+    </div>
+  </div>
+<% end %>
