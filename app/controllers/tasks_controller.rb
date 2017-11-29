@@ -29,7 +29,7 @@ class TasksController < ApplicationController
       @task.assign_attributes(task_params)
 
       if @task.save
-        redirect_to [@task.list, @task]
+        redirect_to [@task.list]
       else
         flash.now[:alert] = "There was an error saving the task. Please try again."
         render :edit
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     private
 
     def task_params
-      params.require(:task).permit(:description, :notes)
+      params.require(:task).permit(:description, :notes, :completed, :duedate)
     end
 
     def set_list

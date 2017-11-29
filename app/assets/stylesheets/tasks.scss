@@ -1,3 +1,63 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.task-submit{
+  background: inherit;
+  border: none;
+}
+
+.task-desc-field{
+  background: inherit;
+  display: inline-block;
+  border: none;
+  width: 70%;
+}
+
+.note-text-field{
+  margin-left: 15%;
+  background: rgba(160, 184, 198, .9);
+  width: 70%;
+  border-radius: 3px;
+}
+
+.task-note-field{
+  background: rgba(160, 184, 198, .3);
+  width: 100%;
+  display: inline-block;
+  padding-top: 5px;
+  border: none;
+}
+
+.task-note-field:focus {
+  outline: none;
+}
+
+.task-list-container{
+  margin-top: 20px;
+}
+
+.task-items{
+  width: 95%;
+  border-radius: 3px;
+  background: rgba(37, 112, 137, .7);
+  padding: 5px;
+  margin-bottom: 2px;
+  color: rgb(215, 215, 215);
+}
+
+.task-column{
+  display: inline-block;
+  width: 92%;
+}
+
+.add-task {
+  width: 95%;
+  border-radius: 3px;
+  background: rgba(100, 100, 100, .5);
+  padding: 5px;
+}
+
+.add-task:hover{
+  background: rgba(150, 150, 150, .7);
+}

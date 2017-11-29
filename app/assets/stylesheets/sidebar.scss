@@ -1,0 +1,75 @@
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    padding-top: 40px;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    background: rgba(37, 112, 137, .9);
+    color: #fff;
+    transition: all 0.3s;
+    float: left;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: rgba(37, 112, 137, .9);
+}
+
+#sidebar ul li a {
+    font-size: 1.1em;
+    display: block;
+    padding: 5px;
+}
+#sidebar ul li a:hover {
+    background: rgba(160, 184, 198, .7);
+    border-radius: 3px 0px 0px 3px
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: rgba(160, 184, 198, .9);
+    border-radius: 3px 0px 0px 3px;
+    border-bottom: solid  1px;
+    border-bottom-color: rgba(37, 112, 137, .9);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 0px !important;
+    background: rgba(160, 184, 198, .9);
+}
+
+#collapseable-menu {
+  display: inline-block;
+  float: left;
+  background: rgba(37, 112, 137, .9);
+  min-width: 45px;
+}
+
+.user-icon{
+  position: absolute;
+  top: 55px;
+  left: 4px;
+}

@@ -17,6 +17,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 
 .jumbotron-fluid{
   background-image: url(scott-webb-249013.jpg);
@@ -41,7 +42,7 @@
 }
 
 .dropdown-menu{
-  background-color: rgba(107, 114, 106, .6);
+  background-color: rgba(160, 184, 198, 1);
 }
 
 .dropdown-menu .field{
@@ -60,9 +61,6 @@
   background-repeat: no-repeat;
 }
 
-.lists-menu{
-  width: 20%;
-}
 
 #sidebar {
     min-width: 250px;
@@ -100,15 +98,6 @@ a, a:hover, a:focus {
 #sidebar .sidebar-header {
     padding: 20px;
     background: rgba(37, 112, 137, .9);
-}
-
-.list-label{
-    padding-left: 10px;
-}
-
-.list-list{
-  padding: 0px;
-  list-style-type: none;
 }
 
 #sidebar ul li a {
@@ -154,26 +143,12 @@ ul ul a {
 
 }
 
-.lists-header{
-  display: inline-block;
-  width: 100%
-}
-
-.list-label{
-  display: inline-block;
-}
-
-
 .navbar-btn {
   background: transparent;
 }
 
 .navbar-btn:focus {
   outline: none;
-}
-
-.list-header-nav {
-  font-size: 20px;
 }
 
 .glyphicon-plus-sign {
@@ -246,13 +221,19 @@ ul ul a {
   display: inline-block;
   border: none;
   width: 70%;
+  outline: none;
+}
+
+.details-container{
+  display: inline-block;
 }
 
 .note-text-field{
-  margin-left: 15%;
   background: rgba(160, 184, 198, .9);
   width: 70%;
-  border-radius: 3px;
+  border-radius: 0 0 13px 13px;
+  display: inline-block;
+  float: left;
 }
 
 .task-note-field{
@@ -260,6 +241,21 @@ ul ul a {
   width: 100%;
   display: inline-block;
   padding-top: 5px;
+  border: none;
+}
+
+.date-text-field{
+  display: inline-block;
+  float: right;
+  background: rgba(160, 184, 198, .9);
+  margin-right: 5%;
+  border-radius: 0 0 13px 3px;
+  width: 10%
+}
+
+.date-field{
+  background: rgba(160, 184, 198, .3);
+  outline: none;
   border: none;
 }
 
@@ -274,6 +270,10 @@ ul ul a {
   display: none;
 }
 
+.date-text-field {
+  display: none;
+}
+
 .plus-btn {
   position: absolute;
   bottom: 10px;
@@ -284,43 +284,21 @@ ul ul a {
   border-top: solid 1px;
 }
 
-.new-list {
-  position: absolute;
-  bottom: 10px;
-  left: 5px;
-  font-size: 20px;
-  border: none;
-  background: transparent;
-  color: rgb(200, 200, 200);
-}
-
 .glyphicon-plus {
   display: inline-block;
 }
 
-#listNameField {
-  position: absolute;
-  bottom: 15px;
-  border: none;
-  color: rgb(200, 200, 200);
-}
-
-.list-name-field {
-  font-size: 18px;
-  background: transparent;
-  border: none;
-  color: rgb(200, 200, 200);
-  border-bottom: solid 1px;
+.add-note-btn {
+  background: rgba(160, 184, 198, 1);
   outline: none;
-  text-align: center;
-}
-
-.list-name {
-  display: inline-block;
-}
-
-.list-header-name-edit {
   border: none;
-  background: transparent;
-  width: 250px;
+  border-radius: 13px;
+  display: inline-block;
+  float: right;
+  font-size: 14px;
+}
+
+.add-note-btn:hover,
+.add-note-btn:active {
+  background: rgba(100, 100, 100, .5);
 }
