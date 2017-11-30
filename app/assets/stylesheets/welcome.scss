@@ -1,3 +1,73 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero-content{
+  position: relative;
+  min-height: 600px;
+  background-image: url(desktop.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.hero-content .hero-title{
+  position: absolute;
+  top: 37%;
+  -webkit-tranform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-shadow: 1px 1px 0px rgb(250, 250, 250);
+  color: rgb(37, 112, 137);
+}
+
+.hero-sizzle {
+  position: absolute;
+  top: 47%;
+  -webkit-tranform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-shadow: 1px 1px 0px rgb(250, 250, 250);
+  color: rgb(37, 112, 137);
+}
+
+.selling-points {
+  position: relative;
+}
+
+.point {
+  color: rgb(50, 50, 50);
+  text-shadow: 1px 1px 0px rgb(200, 200, 200);
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+  opacity: 0;
+  -webkit-transform: scaleX(0.9) translateY(3rem);
+  -moz-transform: scaleX(0.9) translateY(3rem);
+  transform: scaleX(0.9) translateY(3rem);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  transition-delay: 0.2s
+}
+
+
+.point .point-title{
+  font-size: 3rem;
+}

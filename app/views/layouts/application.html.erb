@@ -15,7 +15,7 @@
         <%= render partial: "shared/sidebar" %>
       <% end %>
       <div class="container body-container">
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs <%= 'landing' unless current_user %>">
           <% if current_user %>
             <%= yield :header %>
           <% else %>
@@ -25,7 +25,7 @@
             <% if user_signed_in? %>
               <li class="pull-right"><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
             <% else %>
-              <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path, class:'nav-tabs' %></li>
+              <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path, class:'nav-tabs sign-up' %></li>
               <li class="pull-right">
                 <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"> Log in</button>

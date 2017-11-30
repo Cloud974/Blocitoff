@@ -19,13 +19,27 @@
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
 
-.jumbotron-fluid{
-  background-image: url(scott-webb-249013.jpg);
+body{
+  background: rgba(192, 208, 217, 1);
+}
+
+
+.landing {
+  border: none;
+}
+
+.sign-up {
+  border: none;
 }
 
 .title{
   min-height: 150px;
   text-align: right;
+  padding-right: 10%
+}
+
+.sizzle {
+  padding-left: 5%;
 }
 
 .log-in{
@@ -52,7 +66,6 @@
 .wrapper{
   display: flex;
   align-items: stretch;
-  background-color: #A0B8C6;
 }
 
 .logged-in{
@@ -63,19 +76,19 @@
 
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 15%;
+    max-width: 15%;
     min-height: 100vh;
     padding-top: 40px;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -15%;
 }
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: -15%;
     }
     #sidebar.active {
         margin-left: 0;
@@ -129,7 +142,7 @@ ul ul a {
 #collapseable-menu {
   display: inline-block;
   float: left;
-  background: rgba(37, 112, 137, .9);
+  background: rgba(37, 112, 137, 1);
   min-width: 45px;
 }
 

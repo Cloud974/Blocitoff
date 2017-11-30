@@ -7,7 +7,7 @@
     </div>
     <div class="col-8 task-column">
         <%= form.text_field :description, id: :description, placeholder: "#{task.description}", class: "task-desc-field" %>
-        <small><%= task.duedate %></small>
+        <small><%= distance_of_time_in_words(Time.now, task.duedate) unless task.duedate == nil %></small>
         <div class="date-btn">
             <i class="glyphicon glyphicon-calendar" id="calendar-toggle" data-task-id="<%= task.id %>"></i>
         </div>
@@ -19,10 +19,11 @@
   <div class="container details-container">
     <div class="note-text-field" id="note-div-task-<%= task.id %>">
       <%= form.text_area :notes, class: "task-note-field", rows: '4', placeholder: "Enter task notes here", id: "task-note" %>
-      <%= form.submit "update note", class: "add-note-btn"%>
+      <%= form.submit "update", class: "add-note-btn"%>
     </div>
     <div class="date-text-field" id="calendar-div-task-<%= task.id %>", style="position: relative">
       <%= form.date_select :duedate, class: "date-field date-field-new" %>
+      <%= form.submit "update", class: "add-note-btn"%>
       <script type="text/javascript">
         $(function () {
           $("#datetimepicker-<%= form.object.id %>").datetimepicker();
