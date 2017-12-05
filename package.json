@@ -1,5 +1,9 @@
 {
   "name": "Blocitoff",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.5"
+  }
 }
