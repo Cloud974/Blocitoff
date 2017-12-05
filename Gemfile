@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.1.4'
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
@@ -30,6 +29,14 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'shoulda'
   gem 'factory_girl_rails', '~> 4.0'
+end
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 
