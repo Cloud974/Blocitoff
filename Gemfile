@@ -14,7 +14,7 @@ group :production do
 end
 
 group :development do
-  gem 'sqlite3'
+
 end
 
 gem 'puma', '~> 3.0'
@@ -36,7 +36,10 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'shoulda'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'sqlite3'
 end
+
+gem 'pg', group: :production
 
 gem 'bootstrap-sass'
 
