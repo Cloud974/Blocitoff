@@ -1,12 +1,6 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
-
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.1.4'
 
 group :production do
   gem 'pg'
@@ -36,10 +30,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'shoulda'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'sqlite3'
 end
 
-gem 'pg', group: :production
 
 gem 'bootstrap-sass'
 
