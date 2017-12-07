@@ -62,10 +62,10 @@ As far as style goes, I owe a debt of gratitude to both Pixabay and Unsplash fro
 
 ## Areas still developing
 
-*sizing for different devices
-*organization of tasks by due date-field
-*different visuals for items close to due, and items past due
-*customizable color scheme/background
+*sizing for different devices  
+*organization of tasks by due date-field  
+*different visuals for items close to due, and items past due  
+*customizable color scheme/background  
 
 ## Authors
 
