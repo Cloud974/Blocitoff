@@ -58,14 +58,17 @@ $(document).ready(function () {
 
 ```
 
-As far as style goes, I owe a debt of gratitude to both Pixabay and Unsplash from some fantastic free use images. With a background image I liked, I was able to utilize Coolors.co, whose color sheme generator- which saved me a bunch of time selecting the right colors. Check below for links to those.
+As far as style goes, I owe a debt of gratitude to both Pixabay and Unsplash from some fantastic free use images. With a background image I liked, I was able to utilize Coolors.co, whose color scheme generator- which saved me a bunch of time selecting the right colors.
+
+Check below for links to those.
 
 ## Areas still developing
 
-*sizing for different devices  
-*organization of tasks by due date-field  
-*different visuals for items close to due, and items past due  
-*customizable color scheme/background  
+* sizing for different devices.  
+* organization of tasks by due date-field.  
+* different visuals for items close to due, and items past due.  
+* ability to choose avatar outside of gravatar import.
+* customizable color scheme/background.  
 
 ## Authors
 
