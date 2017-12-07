@@ -2,6 +2,8 @@
 
 This is a task management web app built primarily to emulate [Wunderlist](https://www.wunderlist.com) in some functionality and style. It allows for users to create lists that contain tasks, and each task has its own notes and due date attributes.
 
+![first screen](/app/assets/images/Landing-honeydew.png)
+
 ## Authors
 
 * **Michael Fournier** - *Initial work* - [Cloud974](https://github.com/Cloud974)
