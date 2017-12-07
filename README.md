@@ -6,6 +6,8 @@ This is a task management web app built primarily to emulate [Wunderlist](https:
 
 Honeydew is a Ruby on Rails app utilizing Rails 5.1.4 (as of last update) and Ruby 2.4 . My aim was to create an app with forms that neatly nest within the elements and felt unobtrusive but easy to identify.
 
+![list show](/app/assets/images/list-show.jpg)
+
 To that end, some styling was provided simply with css, as is the case with the drop down log-in.
 
 ![log-in clip](/app/assets/images/log-in.jpg)
